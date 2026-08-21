@@ -50,7 +50,7 @@ st.info(
 # SECTION 1 — WHAT WOULD YOUR POINTS HAVE GOT YOU?
 # ============================================================
 
-st.header("🎯 What would your points have got you in 2026?")
+st.header("🎯 What would your points have got you in 2025?")
 
 st.write(
     "Enter your Leaving Certificate points to see courses whose "
