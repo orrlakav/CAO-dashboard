@@ -14,3 +14,7 @@ Creating a course-level historical dataset using course code as the identifier
 Preparing interactive filtering and visualisation using Streamlit and Plotly
 
 The 2025 data is currently being used as a temporary stand-in for the 2026 CAO data while the updated data becomes available.
+
+<img width="1772" height="982" alt="image" src="https://github.com/user-attachments/assets/d98b2ac7-297a-46f6-9fa8-63f7ff145dad" />
+
+<img width="1760" height="1045" alt="image" src="https://github.com/user-attachments/assets/90e99ff4-c591-4625-ac6d-cd456560ffb3" />
