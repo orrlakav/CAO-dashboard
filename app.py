@@ -341,52 +341,50 @@ if selected_course_codes:
     )
 
 
-    # --------------------------------------------------------
+        # --------------------------------------------------------
     # Plot
     # --------------------------------------------------------
 
     fig = px.line(
-    chart_data,
-    x="Year",
-    y="Points",
-    color="Course",
-    markers=True,
-    hover_data=[
-        "Course Code",
-        "Course Title",
-        "HE Institution",
-        "Category"
-    ],
-    title="CAO Round 1 Points — 2021 to 2026"
-)
+        chart_data,
+        x="Year",
+        y="Points",
+        color="Course",
+        markers=True,
+        hover_data=[
+            "Course Code",
+            "Course Title",
+            "HE Institution",
+            "Category"
+        ],
+        title="CAO Round 1 Points — 2021 to 2026"
+    )
 
 
-# --------------------------------------------------------
-# Add user's Leaving Certificate points as a reference line
-# --------------------------------------------------------
+    # --------------------------------------------------------
+    # Add user's Leaving Certificate points as a reference line
+    # --------------------------------------------------------
 
-fig.add_hline(
-    y=points,
-    line_dash="dash",
-    annotation_text=f"Your points: {points}",
-    annotation_position="top right"
-)
+    fig.add_hline(
+        y=points,
+        line_dash="dash",
+        annotation_text=f"Your LC points: {points}",
+        annotation_position="top right"
+    )
 
 
-fig.update_layout(
-    xaxis_title="Year",
-    yaxis_title="Round 1 Points",
-    legend_title="Course",
-    hovermode="x unified"
-)
+    fig.update_layout(
+        xaxis_title="Year",
+        yaxis_title="Round 1 Points",
+        legend_title="Course",
+        hovermode="x unified"
+    )
 
 
     st.plotly_chart(
         fig,
         use_container_width=True
     )
-
-
     # --------------------------------------------------------
     # Historical table
     # --------------------------------------------------------
