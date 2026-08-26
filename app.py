@@ -18,13 +18,13 @@ st.set_page_config(
 # LOAD DATA
 # ============================================================
 
-cao_data = pd.read_csv("Data/CAO_2025_clean.csv")
+cao_data = pd.read_csv("Data/CAO_2026_clean.csv")
 course_history = pd.read_csv("Data/CAO_course_history.csv")
 
 
 # Make sure year columns in course history are strings
 # (CSV column names are read as strings)
-year_columns = ["2021", "2022", "2023", "2024", "2025"]
+year_columns = ["2021", "2022", "2023", "2024", "2025", "2026"]
 
 
 # ============================================================
@@ -36,21 +36,18 @@ st.title("🎓 CAO Points Explorer")
 st.markdown(
     """
     Explore what your Leaving Certificate points could have got you,
-    and see how CAO points have changed over the past five years.
+    and see how CAO points have changed over the past six years.
     """
 )
 
-st.info(
-    "📊 **2026 preview:** The 2025 Round 1 CAO points are being used here "
-    "temporarily. This will be updated with the 2026 data when available."
-)
+
 
 
 # ============================================================
 # SECTION 1 — WHAT WOULD YOUR POINTS HAVE GOT YOU?
 # ============================================================
 
-st.header("🎯 What would your points have got you in 2025?")
+st.header("🎯 What would your points have got you in 2026?")
 
 st.write(
     "Enter your Leaving Certificate points to see courses whose "
@@ -226,7 +223,7 @@ st.caption(
 
 st.divider()
 
-st.header("📈 Compare your preferred courses over the past 5 years")
+st.header("📈 Compare your preferred courses over the past 6 years")
 
 st.write(
     "Search for courses by name or course code and select multiple "
@@ -379,7 +376,7 @@ if selected_course_codes:
             "HE Institution",
             "Category"
         ],
-        title="CAO Round 1 Points — 2021 to 2025"
+        title="CAO Round 1 Points — 2021 to 2026"
     )
 
 
@@ -413,7 +410,8 @@ if selected_course_codes:
             "2022",
             "2023",
             "2024",
-            "2025"
+            "2025",
+"2026"
         ]
     ].copy()
 
@@ -435,5 +433,5 @@ else:
 
     st.info(
         "👆 Search for a course above and select one or more courses "
-        "to see their five-year points history."
+        "to see their six-year points history."
     )
