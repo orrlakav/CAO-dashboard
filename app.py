@@ -227,41 +227,12 @@ st.header("📈 Compare your preferred courses over the past 6 years")
 
 st.write(
     "Search for courses by name or course code and select multiple "
-    "courses to compare their Round 1 points over time. "
-    "You can compare courses from different institutions."
+    "courses to compare their Round 1 points over time."
 )
 
 
 # ------------------------------------------------------------
-# Course search
-# ------------------------------------------------------------
-
-search_term = st.text_input(
-    "🔎 Search by course name or course code",
-    placeholder="e.g. business, computer science, CK201..."
-)
-
-
-# Start with all courses
-search_results = course_history.copy()
-
-
-# Search course title OR course code
-if search_term:
-
-    search_term = search_term.strip()
-
-    search_results = search_results[
-        search_results["Course Title"]
-        .str.contains(search_term, case=False, na=False)
-        |
-        search_results["Course Code"]
-        .str.contains(search_term, case=False, na=False)
-    ]
-
-
-# ------------------------------------------------------------
-# Optional institution filter for course search
+# Optional institution filter
 # ------------------------------------------------------------
 
 history_institutions = ["All institutions"] + sorted(
@@ -273,10 +244,17 @@ history_institutions = ["All institutions"] + sorted(
 
 
 history_institution = st.selectbox(
-    "Filter course search by institution (optional)",
+    "Restrict your search to one college (optional)",
     history_institutions,
     key="history_institution"
 )
+
+
+# ------------------------------------------------------------
+# Filter courses by institution
+# ------------------------------------------------------------
+
+search_results = course_history.copy()
 
 
 if history_institution != "All institutions":
@@ -287,7 +265,7 @@ if history_institution != "All institutions":
 
 
 # ------------------------------------------------------------
-# Course selector
+# Course selector / search
 # ------------------------------------------------------------
 
 # Create readable labels for the multiselect
@@ -299,9 +277,12 @@ course_options = {
 
 
 selected_course_labels = st.multiselect(
-    "Select courses to compare",
+    "🔎 Search for and select courses to compare",
     options=list(course_options.keys()),
-    help="You can select courses from different institutions."
+    help=(
+        "Type a course name or course code to narrow the list. "
+        "You can select courses from different institutions."
+    )
 )
 
 
@@ -411,7 +392,7 @@ if selected_course_codes:
             "2023",
             "2024",
             "2025",
-"2026"
+            "2026"
         ]
     ].copy()
 
