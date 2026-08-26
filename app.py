@@ -346,27 +346,39 @@ if selected_course_codes:
     # --------------------------------------------------------
 
     fig = px.line(
-        chart_data,
-        x="Year",
-        y="Points",
-        color="Course",
-        markers=True,
-        hover_data=[
-            "Course Code",
-            "Course Title",
-            "HE Institution",
-            "Category"
-        ],
-        title="CAO Round 1 Points — 2021 to 2026"
-    )
+    chart_data,
+    x="Year",
+    y="Points",
+    color="Course",
+    markers=True,
+    hover_data=[
+        "Course Code",
+        "Course Title",
+        "HE Institution",
+        "Category"
+    ],
+    title="CAO Round 1 Points — 2021 to 2026"
+)
 
 
-    fig.update_layout(
-        xaxis_title="Year",
-        yaxis_title="Round 1 Points",
-        legend_title="Course",
-        hovermode="x unified"
-    )
+# --------------------------------------------------------
+# Add user's Leaving Certificate points as a reference line
+# --------------------------------------------------------
+
+fig.add_hline(
+    y=points,
+    line_dash="dash",
+    annotation_text=f"Your points: {points}",
+    annotation_position="top right"
+)
+
+
+fig.update_layout(
+    xaxis_title="Year",
+    yaxis_title="Round 1 Points",
+    legend_title="Course",
+    hovermode="x unified"
+)
 
 
     st.plotly_chart(
